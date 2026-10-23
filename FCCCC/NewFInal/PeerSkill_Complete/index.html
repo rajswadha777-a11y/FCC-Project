@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#30243b">
+    <meta name="description" content="Learn together, share your skills, and connect with fellow students on PeerSkill.">
+    <title>PeerSkill — Grow Together</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="brand" href="#home" aria-label="PeerSkill home">
+                <span class="brand-mark">✳</span>
+                <span>peer<span class="brand-light">skill</span></span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#explore">Explore</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#about">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="button button-ghost" data-action="login">Log in</button>
+                <button class="button button-primary" data-action="signup">Join PeerSkill <span>↗</span></button>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero section" id="home">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        A COMMUNITY THAT LEARNS TOGETHER
+                    </div>
+
+                    <h1>
+                        What you know<br>
+                        could change<br>
+                        <span>someone's world.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Discover what you're good at. Learn something new
+                        from a fellow student. Share knowledge, build
+                        confidence, and grow together.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary button-large" href="#explore">
+                            Explore skills <span>↗</span>
+                        </a>
+                        <a class="button button-ghost button-large" href="#how-it-works">
+                            How it works <span>↓</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-note">
+                        <div class="avatar-stack" aria-hidden="true">
+                            <span>👩🏻</span><span>👨🏽</span><span>👩🏾</span>
+                        </div>
+                        <p><strong>Learn with your peers.</strong><br>
+                        <span>Everyone has something worth sharing.</span></p>
+                    </div>
+                </div>
+
+                <div class="hero-art" aria-label="Illustration representing student collaboration">
+                    <div class="art-orbit orbit-one"></div>
+                    <div class="art-orbit orbit-two"></div>
+
+                    <div class="art-label label-top">
+                        <span class="label-icon lavender">✦</span>
+                        <span><strong>Learn something new</strong><small>One skill at a time</small></span>
+                    </div>
+
+                    <div class="art-center">
+                        <span class="art-sparkle sparkle-one">✳</span>
+                        <span class="art-person person-left">👩🏻‍💻</span>
+                        <span class="art-person person-right">👨🏽‍🎨</span>
+                        <div class="art-heart">♥</div>
+                    </div>
+
+                    <div class="art-label label-bottom">
+                        <span class="label-icon peach">↗</span>
+                        <span><strong>Grow together</strong><small>Skills make connections</small></span>
+                    </div>
+
+                    <span class="art-decoration decoration-one">✳</span>
+                    <span class="art-decoration decoration-two">✦</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- HIGHLIGHTS -->
+        <section class="highlights" aria-label="PeerSkill highlights">
+            <div class="container highlights-grid">
+                <div><strong>01</strong><span>Discover new skills</span></div>
+                <div><strong>02</strong><span>Learn from students</span></div>
+                <div><strong>03</strong><span>Share what you know</span></div>
+                <div><strong>04</strong><span>Grow as a community</span></div>
+            </div>
+        </section>
+
+        <!-- EXPLORE SKILLS -->
+        <section class="explore section" id="explore">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">FIND YOUR NEXT THING</div>
+                        <h2>Curiosity looks good on you.</h2>
+                        <p>Explore a skill, find your starting point, and learn at your own pace.</p>
+                    </div>
+                    <span class="heading-decoration" aria-hidden="true">✳</span>
+                </div>
+
+                <div class="explore-toolbar">
+                    <label class="search-box">
+                        <span aria-hidden="true">⌕</span>
+                        <input id="skillSearch" type="search"
+                               placeholder="Search skills, e.g. Python..."
+                               aria-label="Search skills">
+                        <kbd>/</kbd>
+                    </label>
+
+                    <div class="filter-list" id="filters" aria-label="Filter skills">
+                        <button class="filter-btn active" data-category="all" aria-pressed="true">All skills</button>
+                        <button class="filter-btn" data-category="technology" aria-pressed="false">Technology</button>
+                        <button class="filter-btn" data-category="design" aria-pressed="false">Design</button>
+                        <button class="filter-btn" data-category="creative" aria-pressed="false">Creative</button>
+                        <button class="filter-btn" data-category="academic" aria-pressed="false">Academic</button>
+                    </div>
+                </div>
+
+                <div class="skills-grid" id="skillsGrid">
+
+                    <article class="skill-card" data-category="technology" data-name="web development">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-lavender">&lt;/&gt;</span>
+                            <span class="skill-level">BEGINNER FRIENDLY</span>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Turn your ideas into websites and build your first little corner of the internet.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Technology</span>
+                            <button class="learn-btn" data-skill="Web Development" data-description="Explore HTML, CSS, JavaScript, and the foundations of building websites.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-category="design" data-name="ui ux design">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-peach">✳</span>
+                            <span class="skill-level">GET CREATIVE</span>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Make digital experiences feel intuitive, useful, and beautiful to use.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Design</span>
+                            <button class="learn-btn" data-skill="UI/UX Design" data-description="Discover wireframes, user journeys, interface design, and prototyping.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-category="technology" data-name="python programming">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-sage">⌘</span>
+                            <span class="skill-level">START HERE</span>
+                        </div>
+                        <h3>Python Programming</h3>
+                        <p>Start coding with a friendly language and turn problems into possibilities.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Technology</span>
+                            <button class="learn-btn" data-skill="Python Programming" data-description="Start with variables, conditions, loops, functions, and small Python projects.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-category="creative" data-name="photography">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-yellow">◎</span>
+                            <span class="skill-level">SEE DIFFERENTLY</span>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>Learn composition, lighting, and how to tell stories through pictures.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Creative</span>
+                            <button class="learn-btn" data-skill="Photography" data-description="Explore composition, lighting, framing, and the basics of visual storytelling.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-category="academic" data-name="mathematics">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-blue">∑</span>
+                            <span class="skill-level">LEARN TOGETHER</span>
+                        </div>
+                        <h3>Mathematics</h3>
+                        <p>Make challenging concepts easier with examples, practice, and peer support.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Academic</span>
+                            <button class="learn-btn" data-skill="Mathematics" data-description="Practise mathematical concepts and learn problem-solving strategies with peers.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+
+                    <article class="skill-card" data-category="creative" data-name="video editing">
+                        <div class="skill-card-top">
+                            <span class="skill-icon icon-pink">▷</span>
+                            <span class="skill-level">MAKE SOMETHING</span>
+                        </div>
+                        <h3>Video Editing</h3>
+                        <p>Bring clips together with pacing, transitions, sound, and storytelling.</p>
+                        <div class="skill-card-bottom">
+                            <span class="category-label"><i>●</i> Creative</span>
+                            <button class="learn-btn" data-skill="Video Editing" data-description="Learn editing basics, timelines, transitions, audio, and visual storytelling.">Explore skill <span>↗</span></button>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="no-results" id="noResults" hidden>
+                    No skills found. Try a different search or category.
+                </p>
+
+                <p class="explore-footnote">A little curiosity can take you a long way. <span>✦</span></p>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section section" id="how-it-works">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">SIMPLE BY DESIGN</div>
+                        <h2>Good things happen when we share.</h2>
+                        <p>No complicated steps. Just people, skills, and a willingness to learn.</p>
+                    </div>
+                </div>
+
+                <div class="steps-grid">
+                    <article class="step-card">
+                        <span class="step-number">01</span>
+                        <span class="step-emoji">🔎</span>
+                        <h3>Find your interest</h3>
+                        <p>Browse skills and discover something you've always wanted to learn.</p>
+                    </article>
+                    <article class="step-card">
+                        <span class="step-number">02</span>
+                        <span class="step-emoji">🤝</span>
+                        <h3>Connect with peers</h3>
+                        <p>Meet fellow students who can share their experience and knowledge.</p>
+                    </article>
+                    <article class="step-card">
+                        <span class="step-number">03</span>
+                        <span class="step-emoji">🌱</span>
+                        <h3>Learn and grow</h3>
+                        <p>Practise together, exchange ideas, and celebrate every little win.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT / CTA -->
+        <section class="cta-section" id="about">
+            <div class="cta-decoration cta-decoration-one">✳</div>
+            <div class="cta-decoration cta-decoration-two">✦</div>
+            <div class="container cta-content">
+                <span class="cta-kicker">YOUR NEXT CHAPTER STARTS HERE</span>
+                <h2>You have a skill.<br>Someone wants to learn it.</h2>
+                <p>Join a community where learning goes both ways and everyone brings something to the table.</p>
+                <button class="button button-light button-large" data-action="signup">
+                    Become part of PeerSkill <span>↗</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- USER DASHBOARD: shown after a successful Supabase login -->
+    <section class="dashboard-shell" id="dashboardView" hidden>
+        <aside class="dashboard-sidebar">
+            <a class="brand dashboard-brand" href="#" data-dashboard-nav="overview">
+                <span class="brand-mark">✳</span>
+                <span>peer<span class="brand-light">skill</span></span>
+            </a>
+            <p class="sidebar-label">WORKSPACE</p>
+            <button class="dashboard-nav-item active" type="button" data-dashboard-nav="overview"><span>⌂</span> Overview</button>
+            <button class="dashboard-nav-item" type="button" data-dashboard-nav="skills"><span>✦</span> My skills</button>
+            <button class="dashboard-nav-item" type="button" data-dashboard-nav="people"><span>⌕</span> Find people</button>
+            <button class="dashboard-nav-item" type="button" data-dashboard-nav="requests"><span>↔</span> Learning requests</button>
+            <button class="dashboard-nav-item" type="button" data-dashboard-nav="messages"><span>✉</span> Messages</button>
+            <button class="dashboard-nav-item" type="button" data-dashboard-nav="profile"><span>◉</span> My profile</button>
+            <div class="sidebar-bottom">
+                <div class="sidebar-mini-profile">
+                    <span class="profile-avatar" id="sidebarAvatar">P</span>
+                    <span><strong id="sidebarUserName">PeerSkill member</strong><small id="sidebarUserEmail">Signed in</small></span>
+                </div>
+                <button class="dashboard-signout" id="signOutButton" type="button">↪ Log out</button>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div>
+                    <p class="eyebrow">YOUR PEERSKILL SPACE</p>
+                    <h1 id="dashboardGreeting">Welcome back!</h1>
+                </div>
+                <button class="button button-ghost dashboard-home-button" id="backToWebsite" type="button">← Website</button>
+            </header>
+
+            <div class="dashboard-panel" id="dashboardOverview">
+                <section class="dashboard-welcome">
+                    <div>
+                        <span class="welcome-chip">✳ YOUR LEARNING JOURNEY</span>
+                        <h2>Small steps.<br><span>Big growth.</span></h2>
+                        <p>Learn something new, share what you know, and find your people.</p>
+                        <button class="button button-primary" type="button" data-dashboard-nav="skills">Explore my skills ↗</button>
+                    </div>
+                    <div class="welcome-art" aria-hidden="true">🌱<span>✦</span></div>
+                </section>
+
+                <div class="dashboard-stat-grid">
+                    <article class="dashboard-stat"><span class="stat-icon">✦</span><span class="stat-label">My skills</span><strong id="skillCount">0</strong><small>Skills on your profile</small></article>
+                    <article class="dashboard-stat"><span class="stat-icon peach-stat">↔</span><span class="stat-label">Learning requests</span><strong>0</strong><small>Nothing pending yet</small></article>
+                    <article class="dashboard-stat"><span class="stat-icon sage-stat">◎</span><span class="stat-label">Profile status</span><strong>New</strong><small>You're just getting started</small></article>
+                </div>
+
+                <div class="dashboard-content-grid">
+                    <section class="dashboard-card">
+                        <div class="dashboard-card-heading"><div><p class="eyebrow">MAKE YOURSELF DISCOVERABLE</p><h3>Your skills</h3></div><button class="text-button" type="button" data-dashboard-nav="skills">Edit skills ↗</button></div>
+                        <div class="skill-chip-list" id="dashboardSkillChips"><span class="empty-chip">Add your first skill</span></div>
+                        <p class="dashboard-muted">Your skills help other students discover what you can teach.</p>
+                    </section>
+                    <section class="dashboard-card next-step-card">
+                        <p class="eyebrow">YOUR NEXT STEP</p>
+                        <h3>Complete your profile</h3>
+                        <p>Add your name and skills so peers know what you can share and what you want to learn.</p>
+                        <button class="button button-secondary" type="button" data-dashboard-nav="profile">Complete profile →</button>
+                    </section>
+                </div>
+            </div>
+
+            <section class="dashboard-panel" id="dashboardSkills" hidden>
+                <div class="dashboard-section-title"><p class="eyebrow">SHARE WHAT YOU KNOW</p><h2>My skills</h2><p>Add skills you can teach or are interested in learning. Separate them with commas.</p></div>
+                <form id="skillsForm" class="dashboard-card dashboard-form">
+                    <label class="auth-label" for="skillsInput">Your skills and interests</label>
+                    <textarea id="skillsInput" class="auth-input dashboard-textarea" rows="4" placeholder="Python, UI/UX Design, Public Speaking"></textarea>
+                    <p class="dashboard-muted">Example: Python, Web Development, Photography</p>
+                    <p class="auth-status" id="skillsStatus" role="status" aria-live="polite"></p>
+                    <button class="button button-primary" type="submit">Save my skills</button>
+                </form>
+            </section>
+
+            <section class="dashboard-panel" id="dashboardPeople" hidden>
+                <div class="dashboard-section-title"><p class="eyebrow">YOUR LEARNING COMMUNITY</p><h2>Find people</h2><p>Discover peers who can teach what you want to learn.</p></div>
+                <div class="people-toolbar"><input class="auth-input" id="peopleSearch" type="search" placeholder="Search by name, skill, or interest"><button class="button button-primary" id="peopleSearchButton" type="button">Search</button></div>
+                <p class="auth-status" id="peopleStatus" role="status"></p>
+                <div class="people-grid" id="peopleGrid"><div class="dashboard-card empty-state"><span>🤝</span><h3>Find your learning partner</h3><p>Search for a skill or browse all student profiles.</p></div></div>
+            </section>
+
+            <section class="dashboard-panel" id="dashboardRequests" hidden>
+                <div class="dashboard-section-title"><p class="eyebrow">LEARN TOGETHER</p><h2>Learning requests</h2><p>Manage invitations you've received and requests you've sent.</p></div>
+                <h3 class="subsection-title">Received</h3><div class="request-list" id="incomingRequests"></div>
+                <h3 class="subsection-title">Sent</h3><div class="request-list" id="outgoingRequests"></div>
+            </section>
+
+            <section class="dashboard-panel" id="dashboardMessages" hidden>
+                <div class="dashboard-section-title"><p class="eyebrow">KEEP THE CONVERSATION GOING</p><h2>Messages</h2><p>Chat with peers after they accept your learning request.</p></div>
+                <div class="chat-layout"><div class="chat-list" id="chatList"><p class="dashboard-muted">Your accepted connections will appear here.</p></div><div class="chat-window"><div class="chat-heading" id="chatHeading">Choose a conversation</div><div class="chat-feed" id="chatFeed"></div><form class="chat-compose" id="chatForm"><input class="auth-input" id="chatInput" placeholder="Write a message…" autocomplete="off" disabled><button class="button button-primary" type="submit" disabled>Send</button></form></div></div>
+            </section>
+
+            <section class="dashboard-panel" id="dashboardProfile" hidden>
+                <div class="dashboard-section-title"><p class="eyebrow">THIS IS YOU</p><h2>My profile</h2><p>Keep your details up to date so other learners can get to know you.</p></div>
+                <form id="profileForm" class="dashboard-card dashboard-form">
+                    <label class="auth-label" for="profileName">Full name</label>
+                    <input class="auth-input" id="profileName" name="full_name" type="text" autocomplete="name" required>
+                    <label class="auth-label" for="profileBio">A little about you</label>
+                    <textarea class="auth-input dashboard-textarea" id="profileBio" name="bio" rows="4" placeholder="What are you learning or excited to share?"></textarea>
+                    <label class="auth-label" for="profileLearning">I want to learn</label>
+                    <input class="auth-input" id="profileLearning" name="learning_interests" type="text" placeholder="e.g. Python, design, public speaking">
+                    <p class="auth-status" id="profileStatus" role="status" aria-live="polite"></p>
+                    <button class="button button-primary" type="submit">Save profile</button>
+                </form>
+            </section>
+            <p class="dashboard-footer-note">PeerSkill · Learn something. Share something. ✳</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <a class="brand footer-brand" href="#home">
+                <span class="brand-mark">✳</span>
+                <span>peer<span class="brand-light">skill</span></span>
+            </a>
+            <p>A little knowledge goes a long way.</p>
+            <div class="footer-links">
+                <a href="#explore">Explore</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#home">Back to top ↑</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© 2026 PeerSkill. Made for learners, by learners.</span>
+            <span>Learn something. Share something. ✳</span>
+        </div>
+    </footer>
+
+    <!-- REUSABLE DIALOG: MESSAGE, LOGIN, AND SIGN-UP -->
+    <dialog class="message-dialog auth-dialog" id="messageDialog" aria-labelledby="dialogTitle">
+        <button class="dialog-close" id="closeDialog" aria-label="Close dialog">×</button>
+
+        <!-- Existing informational popup used by skill cards -->
+        <div id="messageView">
+            <span class="dialog-mark">✳</span>
+            <p class="eyebrow" id="dialogEyebrow">A LITTLE SOMETHING FOR YOU</p>
+            <h2 id="dialogTitle">Welcome to PeerSkill</h2>
+            <p class="dialog-message" id="dialogMessage"></p>
+            <div class="dialog-actions">
+                <button class="button button-primary" id="dialogOk" type="button">Sounds good</button>
+            </div>
+        </div>
+
+        <!-- Login form -->
+        <section class="auth-view" id="loginView" hidden>
+            <span class="dialog-mark">✳</span>
+            <p class="eyebrow">IT'S LOVELY TO HAVE YOU BACK</p>
+            <h2>Welcome back.</h2>
+            <p class="auth-intro">Log in to continue learning and sharing with your peers.</p>
+            <form id="loginForm">
+                <label class="auth-label" for="loginEmail">Email address</label>
+                <input class="auth-input" id="loginEmail" name="email" type="email"
+                       placeholder="you@example.com" autocomplete="email" required>
+
+                <label class="auth-label" for="loginPassword">Password</label>
+                <input class="auth-input" id="loginPassword" name="password" type="password"
+                       placeholder="Enter your password" autocomplete="current-password"
+                       minlength="6" required>
+
+                <p class="auth-status" id="loginStatus" role="status" aria-live="polite"></p>
+                <button class="button button-primary auth-submit" type="submit">Log in</button>
+            </form>
+            <p class="auth-switch">New to PeerSkill?
+                <button class="text-button" type="button" data-auth-switch="signup">Create an account</button>
+            </p>
+        </section>
+
+        <!-- Sign-up form -->
+        <section class="auth-view" id="signupView" hidden>
+            <span class="dialog-mark">✳</span>
+            <p class="eyebrow">COME GROW WITH US</p>
+            <h2>Join PeerSkill.</h2>
+            <p class="auth-intro">Create an account to start your learning journey.</p>
+            <form id="signupForm">
+                <label class="auth-label" for="signupName">Full name</label>
+                <input class="auth-input" id="signupName" name="name" type="text"
+                       placeholder="Your name" autocomplete="name" required>
+
+                <label class="auth-label" for="signupEmail">Email address</label>
+                <input class="auth-input" id="signupEmail" name="email" type="email"
+                       placeholder="you@example.com" autocomplete="email" required>
+
+                <label class="auth-label" for="signupPassword">Create password</label>
+                <input class="auth-input" id="signupPassword" name="password" type="password"
+                       placeholder="At least 6 characters" autocomplete="new-password"
+                       minlength="6" required>
+
+                <p class="auth-status" id="signupStatus" role="status" aria-live="polite"></p>
+                <button class="button button-primary auth-submit" type="submit">Create account</button>
+            </form>
+            <p class="auth-switch">Already have an account?
+                <button class="text-button" type="button" data-auth-switch="login">Log in</button>
+            </p>
+        </section>
+    </dialog>
+
+</body>
+</html>
